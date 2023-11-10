@@ -1,0 +1,27 @@
+.wy-nav-side {
+    display: none;
+}
+
+.wy-nav-content-wrap {
+    margin-left: 0;
+}
+
+#QuantumCircuit\._base\.Base { 
+    display: none; 
+}
+
+#QuantumCircuit\._gates\.__OneQubitGates { 
+    display: none; 
+}
+
+#QuantumCircuit\._gates\.__TwoQubitGates { 
+    display: none; 
+}
+
+#QuantumCircuit\._gates\.__ThreeQubitGates { 
+    display: none; 
+}
+
+#QuantumCircuit\._algorithms\.Algorithms { 
+    display: none; 
+}

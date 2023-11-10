@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuantumCircuit &mdash; QuantumCircuit  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            QuantumCircuit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">QuantumCircuit</a><ul>
+<li><a class="reference internal" href="#QuantumCircuit.circuit.QuantumCircuit"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit</span></code></a><ul>
+<li><a class="reference internal" href="#QuantumCircuit.circuit.QuantumCircuit.__init__"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit.circuit.QuantumCircuit.write"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.write()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#QuantumCircuit._base.Base"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a><ul>
+<li><a class="reference internal" href="#QuantumCircuit._base.Base.comment"><code class="docutils literal notranslate"><span class="pre">Base.comment()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._base.Base.empty_line"><code class="docutils literal notranslate"><span class="pre">Base.empty_line()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gates">Gates</a><ul>
+<li><a class="reference internal" href="#qubit-gates">1-Qubit-Gates</a><ul>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__OneQubitGates"><code class="docutils literal notranslate"><span class="pre">__OneQubitGates</span></code></a><ul>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__OneQubitGates.hadamard"><code class="docutils literal notranslate"><span class="pre">__OneQubitGates.hadamard()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__OneQubitGates.ident"><code class="docutils literal notranslate"><span class="pre">__OneQubitGates.ident()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__OneQubitGates.measure"><code class="docutils literal notranslate"><span class="pre">__OneQubitGates.measure()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__OneQubitGates.pauliX"><code class="docutils literal notranslate"><span class="pre">__OneQubitGates.pauliX()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__OneQubitGates.pauliY"><code class="docutils literal notranslate"><span class="pre">__OneQubitGates.pauliY()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__OneQubitGates.pauliZ"><code class="docutils literal notranslate"><span class="pre">__OneQubitGates.pauliZ()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__OneQubitGates.phase"><code class="docutils literal notranslate"><span class="pre">__OneQubitGates.phase()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__OneQubitGates.sphase"><code class="docutils literal notranslate"><span class="pre">__OneQubitGates.sphase()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__OneQubitGates.tphase"><code class="docutils literal notranslate"><span class="pre">__OneQubitGates.tphase()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">2-Qubit-Gates</a><ul>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__TwoQubitGates"><code class="docutils literal notranslate"><span class="pre">__TwoQubitGates</span></code></a><ul>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__TwoQubitGates.cnot"><code class="docutils literal notranslate"><span class="pre">__TwoQubitGates.cnot()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__TwoQubitGates.cphase"><code class="docutils literal notranslate"><span class="pre">__TwoQubitGates.cphase()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__TwoQubitGates.cz"><code class="docutils literal notranslate"><span class="pre">__TwoQubitGates.cz()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__TwoQubitGates.swap"><code class="docutils literal notranslate"><span class="pre">__TwoQubitGates.swap()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">3-Qubit-Gates</a><ul>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__ThreeQubitGates"><code class="docutils literal notranslate"><span class="pre">__ThreeQubitGates</span></code></a><ul>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__ThreeQubitGates.cswap"><code class="docutils literal notranslate"><span class="pre">__ThreeQubitGates.cswap()</span></code></a></li>
+<li><a class="reference internal" href="#QuantumCircuit._gates.__ThreeQubitGates.toffoli"><code class="docutils literal notranslate"><span class="pre">__ThreeQubitGates.toffoli()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#algorithms">Algorithms</a><ul>
+<li><a class="reference internal" href="#QuantumCircuit._algorithms.Algorithms"><code class="docutils literal notranslate"><span class="pre">Algorithms</span></code></a><ul>
+<li><a class="reference internal" href="#QuantumCircuit._algorithms.Algorithms.qft"><code class="docutils literal notranslate"><span class="pre">Algorithms.qft()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">QuantumCircuit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">QuantumCircuit</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quantumcircuit">
+<h1>QuantumCircuit<a class="headerlink" href="#quantumcircuit" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="QuantumCircuit.circuit.QuantumCircuit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">QuantumCircuit</span></span><a class="headerlink" href="#QuantumCircuit.circuit.QuantumCircuit" title="Permalink to this definition"></a></dt>
+<dd><p>A class to build a Quantum Circuit and write it to a file for the QSFW.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit.circuit.QuantumCircuit.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit.circuit.QuantumCircuit.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a circuit by executing the circuit command for the given initial qubits.</p>
+<p>Raises a ValueError exception if the initial qubits are empty or they include a non-Bit value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initial_qubits</strong> (<em>tuple</em><em>[</em><em>int</em><em>]</em>) – A tuple containing the initial qubits.
+The index of the qubit inside the tuple determines the qubit ID e.g., initial_qubits[2] has qubit ID ‘q2’.</p></li>
+<li><p><strong>comment</strong> (<em>str</em>) – (optional) Adds the given comment before the circuit command.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit.circuit.QuantumCircuit.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit.circuit.QuantumCircuit.write" title="Permalink to this definition"></a></dt>
+<dd><p>Writes the circuit buffer to the given file. Clears the output buffer afterwards.</p>
+<p>Raises an IOError exception if the given file is not writeable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> (<em>TextIO</em>) – (optional) The file where to write the circuit buffer.
+Defaults to stdout, if no file is given.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="QuantumCircuit._base.Base">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Base</span></span><a class="headerlink" href="#QuantumCircuit._base.Base" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._base.Base.comment">
+<span class="sig-name descname"><span class="pre">comment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._base.Base.comment" title="Permalink to this definition"></a></dt>
+<dd><p>Appends the given comment cmt with the prefix ‘// ‘ to the output buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cmt</strong> (<em>str</em>) – The comment to be appended.</p></li>
+<li><p><strong>multiline</strong> (<em>bool</em>) – (optional) If set to False, the comment gets ‘// ‘ as a prefix.
+If set to True, the comment gets ‘/* ‘ as a prefix and ‘ */’ as a subfix. Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._base.Base.empty_line">
+<span class="sig-name descname"><span class="pre">empty_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._base.Base.empty_line" title="Permalink to this definition"></a></dt>
+<dd><p>Appends empty line(s) to the output buffer.</p>
+<p>Raises a ValueError exception if count is smaller than 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> (<em>int</em>) – (optional) Determines the number of empty lines. Defaults to 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="gates">
+<h2>Gates<a class="headerlink" href="#gates" title="Permalink to this heading"></a></h2>
+<section id="qubit-gates">
+<h3>1-Qubit-Gates<a class="headerlink" href="#qubit-gates" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__OneQubitGates">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__OneQubitGates</span></span><a class="headerlink" href="#QuantumCircuit._gates.__OneQubitGates" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__OneQubitGates.hadamard">
+<span class="sig-name descname"><span class="pre">hadamard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__OneQubitGates.hadamard" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the hadamard command on the given qubit.</p>
+<p>Raises a ValueError exception if the qubit is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>qubit</strong> (<em>int</em>) – The ID of the qubit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__OneQubitGates.ident">
+<span class="sig-name descname"><span class="pre">ident</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__OneQubitGates.ident" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the ident command on the given qubit.</p>
+<p>Raises a ValueError exception if the qubit is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>qubit</strong> (<em>int</em>) – The ID of the qubit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__OneQubitGates.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__OneQubitGates.measure" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the measure command for all given qubits.</p>
+<p>Raises a ValueError exception if a qubit is not part of the circuit or if there are duplicates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>qubits</strong> (<em>tuple</em><em>[</em><em>int</em><em>]</em>) – (optional) The to-be-measured qubit IDs.
+If no qubits are given, defaults to all qubits of the circuit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__OneQubitGates.pauliX">
+<span class="sig-name descname"><span class="pre">pauliX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__OneQubitGates.pauliX" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the pauliX command on the given qubit.</p>
+<p>Raises a ValueError exception if the qubit is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>qubit</strong> (<em>int</em>) – The ID of the qubit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__OneQubitGates.pauliY">
+<span class="sig-name descname"><span class="pre">pauliY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__OneQubitGates.pauliY" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the pauliY command on the given qubit.</p>
+<p>Raises a ValueError exception if the qubit is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>qubit</strong> (<em>int</em>) – The ID of the qubit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__OneQubitGates.pauliZ">
+<span class="sig-name descname"><span class="pre">pauliZ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__OneQubitGates.pauliZ" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the pauliZ command on the given qubit.</p>
+<p>Raises a ValueError exception if the qubit is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>qubit</strong> (<em>int</em>) – The ID of the qubit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__OneQubitGates.phase">
+<span class="sig-name descname"><span class="pre">phase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__OneQubitGates.phase" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the phase command on the given qubit.</p>
+<p>Raises a ValueError exception if the qubit is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubit</strong> (<em>int</em>) – The ID of the qubit.</p></li>
+<li><p><strong>angle</strong> (<em>str</em>) – The angle for the shift. 
+Use str so that expressions like ‘pi / 2’ 
+don’t get evaluated here but in the QSFW.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__OneQubitGates.sphase">
+<span class="sig-name descname"><span class="pre">sphase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__OneQubitGates.sphase" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the sphase command on the given qubit.</p>
+<p>Raises a ValueError exception if the qubit is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>qubit</strong> (<em>int</em>) – The ID of the qubit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__OneQubitGates.tphase">
+<span class="sig-name descname"><span class="pre">tphase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__OneQubitGates.tphase" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the tphase command on the given qubit.</p>
+<p>Raises a ValueError exception if the qubit is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>qubit</strong> (<em>int</em>) – The ID of the qubit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="id1">
+<h3>2-Qubit-Gates<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__TwoQubitGates">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__TwoQubitGates</span></span><a class="headerlink" href="#QuantumCircuit._gates.__TwoQubitGates" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__TwoQubitGates.cnot">
+<span class="sig-name descname"><span class="pre">cnot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cqubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__TwoQubitGates.cnot" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the cnot command on the given qubits.</p>
+<p>Raises a ValueError exception if one of the qubits is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubit</strong> (<em>int</em>) – The ID of the qubit.</p></li>
+<li><p><strong>cqubit</strong> (<em>int</em>) – The ID of the control qubit.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__TwoQubitGates.cphase">
+<span class="sig-name descname"><span class="pre">cphase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cqubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__TwoQubitGates.cphase" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the cphase command on the given qubits.</p>
+<p>Raises a ValueError exception if one of the qubits is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubit</strong> (<em>int</em>) – The ID of the qubit.</p></li>
+<li><p><strong>cqubit</strong> (<em>int</em>) – The ID of the control qubit.</p></li>
+<li><p><strong>angle</strong> (<em>str</em>) – The angle for the shift. 
+Use str so that expressions like ‘pi / 2’ don’t get evaluated here.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__TwoQubitGates.cz">
+<span class="sig-name descname"><span class="pre">cz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cqubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__TwoQubitGates.cz" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the cz (Controlled-Z) command on the given qubits.</p>
+<p>Raises a ValueError exception if one of the qubits is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubit</strong> (<em>int</em>) – The ID of the qubit.</p></li>
+<li><p><strong>cqubit</strong> (<em>int</em>) – The ID of the control qubit.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__TwoQubitGates.swap">
+<span class="sig-name descname"><span class="pre">swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubit1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__TwoQubitGates.swap" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the swap command on the given qubits.</p>
+<p>Raises a ValueError exception if one of the qubits is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubit0</strong> (<em>int</em>) – The ID of the first qubit.</p></li>
+<li><p><strong>qubit1</strong> (<em>int</em>) – The ID of the second qubit.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="id2">
+<h3>3-Qubit-Gates<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__ThreeQubitGates">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__ThreeQubitGates</span></span><a class="headerlink" href="#QuantumCircuit._gates.__ThreeQubitGates" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__ThreeQubitGates.cswap">
+<span class="sig-name descname"><span class="pre">cswap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubit1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubit2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__ThreeQubitGates.cswap" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the cswap command on the given qubits.</p>
+<p>Raises a ValueError exception if one of the qubits is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubit0</strong> (<em>int</em>) – The ID of the first qubit.</p></li>
+<li><p><strong>qubit1</strong> (<em>int</em>) – The ID of the second qubit.</p></li>
+<li><p><strong>qubit2</strong> (<em>int</em>) – The ID of the third qubit.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._gates.__ThreeQubitGates.toffoli">
+<span class="sig-name descname"><span class="pre">toffoli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubit1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubit2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._gates.__ThreeQubitGates.toffoli" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the toffoli command on the given qubits.</p>
+<p>Raises a ValueError exception if one of the qubits is not part of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubit0</strong> (<em>int</em>) – The ID of the first qubit.</p></li>
+<li><p><strong>qubit1</strong> (<em>int</em>) – The ID of the second qubit.</p></li>
+<li><p><strong>qubit2</strong> (<em>int</em>) – The ID of the third qubit.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<section id="algorithms">
+<h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="QuantumCircuit._algorithms.Algorithms">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Algorithms</span></span><a class="headerlink" href="#QuantumCircuit._algorithms.Algorithms" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="QuantumCircuit._algorithms.Algorithms.qft">
+<span class="sig-name descname"><span class="pre">qft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit._algorithms.Algorithms.qft" title="Permalink to this definition"></a></dt>
+<dd><p>Builds the Quantum Fourier Transform for the given qubits.</p>
+<p>Raises a ValueError exception if a qubit is not part of the circuit or if there are duplicates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubits</strong> (<em>tuple</em><em>[</em><em>int</em><em>]</em>) – (optional) A tuple containing the IDs of the qubits.
+If no qubits are given, defaults to all qubits of the circuit.</p></li>
+<li><p><strong>inverse</strong> (<em>bool</em>) – (optional) If set to True, the inverse QFT will be built.
+Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Til Kaiser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
