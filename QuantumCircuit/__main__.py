@@ -44,14 +44,12 @@ if __name__ == "__main__":
     func, initial_qubits = __checkCmdArgs()
 
     # Create the circuit
-    circuit = QuantumCircuit(initial_qubits, 
-        comment=f"Create circuit with {len(initial_qubits)} qubits")
+    circuit = QuantumCircuit(initial_qubits)
     
     # Apply the given circuit/algorithm
     func(circuit)
 
     # Measure all qubits
-    circuit.comment("Measure the qubit(s)")
     circuit.measure()
 
     # Print the circuit to stdout
