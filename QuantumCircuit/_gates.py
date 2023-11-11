@@ -1,6 +1,7 @@
 from ._base import Base
 
 
+# 1-Qubit-Gates
 class __OneQubitGates(Base):
     def ident(self, qubit: int):
         """
@@ -108,6 +109,7 @@ class __OneQubitGates(Base):
             self._command(f"measure('q{qubit}');")
 
 
+# 2-Qubit-Gates
 class __TwoQubitGates(Base):
     def cnot(self, qubit: int, cqubit: int):
         """
@@ -164,6 +166,7 @@ class __TwoQubitGates(Base):
         self._command(f"cphase('q{cqubit}', 'q{qubit}', {angle});")
 
 
+# 3-Qubit-Gates
 class __ThreeQubitGates(Base):
     def toffoli(self, qubit0: int, qubit1: int, qubit2: int):
         """
@@ -196,7 +199,6 @@ class __ThreeQubitGates(Base):
         self._command(f"cswap('q{qubit0}', 'q{qubit1}, 'q{qubit2}');")
 
 
+# An abstract class containing the quantum circuit gates
 class Gates(__OneQubitGates, __TwoQubitGates, __ThreeQubitGates):
-    "This class derives from all nQubitGates classes and can be used by other classes"
-
     pass

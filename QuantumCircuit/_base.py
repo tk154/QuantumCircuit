@@ -1,3 +1,4 @@
+# An abstract class containing some basic methods for building the quantum circuit
 class Base:
     # The count of qubits inside the circuit
     _qubit_count = 0

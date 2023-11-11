@@ -2,6 +2,7 @@ from ._base import Base
 from ._gates import Gates
 
 
+# An abstract class containing predefined algrorithms resp. circuits
 class Algorithms(Gates, Base):
     def __qft_swap_gates(self, qubits: tuple[int], qubits_len: int):
         "Swaps the gates for the QFT"
