@@ -7,8 +7,6 @@ class Algorithms(Gates, Base):
         "Swaps the gates for the QFT"
 
         if qubits_len >= 2:
-            self.comment("Swap the Gates")
-
             for i in reversed(range(qubits_len // 2)):
                 self.swap(qubits[i], qubits[qubits_len - i - 1])
             
@@ -26,8 +24,6 @@ class Algorithms(Gates, Base):
         # Start the circuit with the last given qubit
         for i in reversed(range(qubits_len)):
             qubit = qubits[i]
-
-            self.comment(f"Gates for qubit {qubit}")
 
             # Create a Hadamard-Gate for all qubits
             self.hadamard(qubit)
@@ -57,8 +53,6 @@ class Algorithms(Gates, Base):
         for i in range(qubits_len):
             qubit = qubits[i]
 
-            self.comment(f"Gates for qubit {qubit}")
-
             # Create a Hadamard-Gate for all qubits
             self.hadamard(qubit)
 
@@ -82,13 +76,6 @@ class Algorithms(Gates, Base):
         """
 
         qubits = self._check_qubits(qubits)
-        
-        self.empty_line()
-        self.comment("Start of QFT", multiline=True)
-        self.empty_line()
 
         # Build the QFT or inverse QFT
         self.__iqft(qubits) if inverse else self.__qft(qubits)
-
-        self.comment("End of QFT", multiline=True)
-        self.empty_line(count=2)
