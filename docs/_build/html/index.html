@@ -128,7 +128,9 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="QuantumCircuit.circuit.QuantumCircuit">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">QuantumCircuit</span></span><a class="headerlink" href="#QuantumCircuit.circuit.QuantumCircuit" title="Permalink to this definition"></a></dt>
-<dd><p>A class to build a Quantum Circuit and write it to a file for the QSFW.</p>
+<dd><p>A class to build a Quantum Circuit and write it to a file for the QSFW.
+When the various methods of this class are called, the code for the qsfw is generated
+and cached in the object so that it can finally be written to the interface file.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="QuantumCircuit.circuit.QuantumCircuit.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#QuantumCircuit.circuit.QuantumCircuit.__init__" title="Permalink to this definition"></a></dt>

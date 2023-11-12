@@ -6,7 +6,11 @@ from typing import TextIO
 
 
 class QuantumCircuit(Algorithms, Gates, Base):
-    "A class to build a Quantum Circuit and write it to a file for the QSFW."
+    """
+    A class to build a Quantum Circuit and write it to a file for the QSFW.
+    When the various methods of this class are called, the code for the qsfw is generated
+    and cached in the object so that it can finally be written to the interface file.
+    """
 
     def __init__(self, initial_qubits: tuple[int], comment: str = None):
         """
