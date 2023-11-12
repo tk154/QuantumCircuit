@@ -37,4 +37,18 @@ Algorithms
 ----------
 
 .. autoclass:: QuantumCircuit._algorithms.Algorithms
-   :members:
+   :special-members:
+
+   .. automethod:: qft
+   .. note::
+      | The following pictures show how the QFT is applied on the given Qubits.
+      |
+      | ``qft((0, 1, 2), inverse=False)``
+
+      .. image:: _images/qft.svg
+
+      |
+      |
+      | ``qft((0, 1, 2), inverse=True)``
+
+      .. image:: _images/iqft.svg
