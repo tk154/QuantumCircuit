@@ -7,11 +7,9 @@ class Algorithms(Gates, Base):
     def __qft_swap_gates(self, qubits: tuple[int], qubits_len: int):
         "Swaps the gates for the QFT"
 
-        if qubits_len >= 2:
-            for i in reversed(range(qubits_len // 2)):
-                self.swap(qubits[i], qubits[qubits_len - i - 1])
-            
-            self.empty_line()
+        for i in reversed(range(qubits_len // 2)):
+            self.swap(qubits[i], qubits[qubits_len - i - 1])
+
 
     def __qft(self, qubits: tuple[int]):
         """
@@ -35,10 +33,14 @@ class Algorithms(Gates, Base):
                 cqubit = qubits[i - j - 1]
                 self.cphase(qubit, cqubit, f"pi / {2 ** (j + 1)}")
 
-            self.empty_line()
+            # Only append a new line if there is more than one iteration
+            if qubits_len >= 2:
+                self.empty_line()
 
-        # Swap the Gates
-        self.__qft_swap_gates(qubits, qubits_len)
+        if qubits_len >= 2:
+            # Swap the Gates
+            self.__qft_swap_gates(qubits, qubits_len)
+
 
     def __iqft(self, qubits: tuple[int]):
         """
@@ -46,12 +48,19 @@ class Algorithms(Gates, Base):
         Raises a ValueError exception if a qubit is not part of the circuit or if there are duplicates.
         """
 
-        # Retrieve the count of given qubits and swap the gates
+        # Retrieve the count of given qubits
         qubits_len = len(qubits)
-        self.__qft_swap_gates(qubits, qubits_len)
+
+        if qubits_len >= 2:
+            # Swap the gates
+            self.__qft_swap_gates(qubits, qubits_len)
 
         # Start the circuit with the first given qubit
         for i in range(qubits_len):
+            # Only append a new line if there is more than one iteration
+            if qubits_len >= 2:
+                self.empty_line()
+
             qubit = qubits[i]
 
             # Create a Hadamard-Gate for all qubits
@@ -63,7 +72,6 @@ class Algorithms(Gates, Base):
                 cqubit = qubits[i + j + 1]
                 self.cphase(qubit, cqubit, f"-pi / {2 ** (j + 1)}")
 
-            self.empty_line()
 
     def qft(self, qubits: tuple[int] = (), inverse: bool = False):
         """
