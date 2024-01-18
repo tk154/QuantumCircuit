@@ -48,6 +48,7 @@ if __name__ == "__main__":
     
     # Apply the given circuit/algorithm
     func(circuit)
+    circuit.empty_line()
 
     # Measure all qubits
     circuit.measure()
