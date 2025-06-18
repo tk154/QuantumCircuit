@@ -1,6 +1,6 @@
 # QuantumCircuit
 
-The goal of this Python Package is to create an interface file containing a quantum circuit for the [Quantum Simulation Framework (qsfw)](https://github.com/jonasjelonek/qsfw) of [@jonasjelonek](https://github.com/jonasjelonek).
+The goal of this Python Package is to create an interface file containing a quantum circuit for the [Quantum Simulation Framework (qsfw)](https://codeberg.org/jonasjelonek/qsfw) of [@jonasjelonek](https://codeberg.org/jonasjelonek).
 
 <br>
 
